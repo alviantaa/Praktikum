@@ -102,9 +102,9 @@
    ```
    db.books.updateMany({author:"Osamu Dazai"}, {$set: {publisher:"Yen Press"}})
    ```
-   <br> ![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_2/screenshot/18.png)
+   <br> ![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_2/screenshot/18.jpg)
    <br> Hasil setelah update publisher
-   <br> ![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_2/screenshot/19.png)
+   <br> ![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_2/screenshot/19.jpg)
 
 9. Lakukan penghapusan pada buku “Overlord I” dengan menggunakan command
    ```
