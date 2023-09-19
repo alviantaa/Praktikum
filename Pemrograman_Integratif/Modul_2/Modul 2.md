@@ -3,7 +3,7 @@
 > MongoDB Compass adalah tool berbasis Graphical User Interface (GUI) untuk berinteraksi dengan MongoDB yang terpasang secara on-premise dan MongoDB Atlas yang berbasis cloud. Tool ini dapat melakukan aktivitas dasar seperti CREATE, READ, UPDATE, dan DELETE (CRUD) tanpa berhadapan dengan baris perintah (command line).
 ### Langkah Praktikum
 1. Koneksi ke MongoDB menggunakan connection string (local connection)
-<br> ![image](https://github.com/alviantaa/Praktikum/Pemrograman_Integratif/Modul_2/screenshot/1)
+<br> ![image](https://github.com/alviantaa/Praktikum/Pemrograman_Integratif/Modul_2/screenshot/1.png)
 
 3. Buat database dengan melakukan klik "Create Database"
 <br> ![image](https://github.com/alviantaa/Praktikum/Pemrograman_Integratif/Modul_2/screenshot/2)
