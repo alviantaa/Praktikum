@@ -88,27 +88,28 @@
 
    <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/5.png)
 
-> [!NOTE]
-> Dikarenakan tidak menggunakan nodemon, maka setiap terdapat perubahan file, diharuskan untuk melakukan restrart server node terlebih dahulu dengan cara CTRL+C dan jalankan `node indes.js` kembali. 2. Lakukan pembuatan file .env dan masukkan baris berikut
+   > [!NOTE]
+   > Dikarenakan tidak menggunakan nodemon, maka setiap terdapat perubahan file, diharuskan untuk melakukan restrart server node terlebih dahulu dengan cara CTRL+C dan jalankan node index.js kembali. 2. Lakukan pembuatan file .env dan masukkan baris berikut
 
-    ```
-    PORT=5000
-    ```
+   ```
+   PORT=5000
+   ```
 
-    <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/6.png)
+   <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/6.png)
 
-    kemudian ubah kode listening port pada file index.env dan jalankan kembali
+   kemudian ubah kode listening port pada file index.env dan jalankan kembali
 
-    ```
-    const PORT = process.env.PORT || 8000;
-    app.listen(PORT, () => {
-        console.log(`Running on port ${PORT}`);
-    })
-    ```
-    <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/7.png)
-    <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/8.png)
+   ```
+   const PORT = process.env.PORT || 8000;
+   app.listen(PORT, () => {
+       console.log(`Running on port ${PORT}`);
+   })
+   ```
 
-3. Copy connection string yang terdapat pada compas atau atlas dan paste kan pada .env seperti berikut
+   <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/7.png)
+   <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/8.png)
+
+2. Copy connection string yang terdapat pada compas atau atlas dan paste kan pada .env seperti berikut
 
    ```
    MONGO_URI = Connection string masing-masing
@@ -116,7 +117,7 @@
 
    <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/9.png)
 
-4. Tambahkan baris kode berikut pada file index.js
+3. Tambahkan baris kode berikut pada file index.js
 
    ```
    require('dotenv').config();
