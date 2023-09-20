@@ -31,8 +31,7 @@
 ### Instalasi NodeJS
 
 1. Memeriksa apakah NodeJS telah terinstall menggunakan `node -v`
-   <br>
-
+   <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/1.png)
 2. Apabila belum terdapat NodeJS, dapat di download dan diinstal terlebih dahulu
 
 ### Inisiasi project Express dan pemasangan package
@@ -40,254 +39,286 @@
 1. Lakukan pembuatan folder dengan nama express-mongodb dan masuk ke dalam folder tersebut lalu buka melalui text editor masing-masing
 2. Lakukan npm init untuk mengenerate file package.json dengan menggunakan command
 
-```
-npm init -y
-```
+   ```
+   npm init -y
+   ```
+
+   <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/2.png)
 
 3. Lakukan instalasi express, mongoose, dan dotenv dengan menggunakan command
 
-```
-npm i express mongoose dotenv
-```
+   ```
+   npm i express mongoose dotenv
+   ```
+
+   <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/3.png)
 
 ### Koneksi Express ke MongoDB (VSCode)
 
 1. Buatlah file index.js pada root folder dan masukkan kode di bawah ini
 
-```
-require('dotenv').config();
-const express = require('express');
-const mongoose = require('mongoose');
+   ```
+   require('dotenv').config();
+   const express = require('express');
+   const mongoose = require('mongoose');
 
-const app = express();
+   const app = express();
 
-app.use(express.json());
+   app.use(express.json());
 
-app.get('/', (req, res) => {
-    res.status(200).json({
-        message: '<nama>,<nim>'
-    })
-})
+   app.get('/', (req, res) => {
+       res.status(200).json({
+           message: '<nama>,<nim>'
+       })
+   })
 
-const PORT = 8000;
-app.listen(PORT, () => {
-    console.log(`Running on port ${PORT}`);
-})
-```
+   const PORT = 8000;
+   app.listen(PORT, () => {
+       console.log(`Running on port ${PORT}`);
+   })
+   ```
 
-Kemudian jalankan aplikasi menggunakan command
+   <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/4.png)
 
-```
-node index.js
-```
+   Kemudian jalankan aplikasi menggunakan command
+
+   ```
+   node index.js
+   ```
+
+   <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/5.png)
 
 > [!NOTE]
 > Dikarenakan tidak menggunakan nodemon, maka setiap terdapat perubahan file, diharuskan untuk melakukan restrart server node terlebih dahulu dengan cara CTRL+C dan jalankan `node indes.js` kembali. 2. Lakukan pembuatan file .env dan masukkan baris berikut
 
-```
-PORT=5000
-```
+    ```
+    PORT=5000
+    ```
 
-kemudian ubah kode listening port pada file index.env dan jalankan kembali
+    <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/6.png)
 
-```
-const PORT = process.env.PORT || 8000;
-app.listen(PORT, () => {
-    console.log(`Running on port ${PORT}`);
-})
-```
+    kemudian ubah kode listening port pada file index.env dan jalankan kembali
+
+    ```
+    const PORT = process.env.PORT || 8000;
+    app.listen(PORT, () => {
+        console.log(`Running on port ${PORT}`);
+    })
+    ```
+    <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/7.png)
+    <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/8.png)
 
 3. Copy connection string yang terdapat pada compas atau atlas dan paste kan pada .env seperti berikut
 
-```
-MONGO_URI=<Connection string masing-masing>
-```
+   ```
+   MONGO_URI = Connection string masing-masing
+   ```
+
+   <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/9.png)
 
 4. Tambahkan baris kode berikut pada file index.js
 
-```
-require('dotenv').config();
-const express = require('express');
-const mongoose = require('mongoose');
+   ```
+   require('dotenv').config();
+   const express = require('express');
+   const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGO_URI);
-const db = mongoose.connection;
+   mongoose.connect(process.env.MONGO_URI);
+   const db = mongoose.connection;
 
-db.on('error', (error) => {
-    console.log(error);
-});
+   db.on('error', (error) => {
+       console.log(error);
+   });
 
-db.once('connected', () => {
-    console.log('Mongo connected');
-})
-...
-```
+   db.once('connected', () => {
+       console.log('Mongo connected');
+   })
+   ...
+   ```
 
-Coba jalankan aplikasi kembali
+   <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/10.png)
+   Coba jalankan aplikasi kembali
+   <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/11.png)
 
 ### Pembuatan routing
 
 1. Pembuatan directory routes di tingkat yang sama dengan index.js
 2. Buatlah file book.route.js di dalamnya
+   <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/12.png)
+
 3. Tambahkan baris kode berikut untuk fungsi getAllBooks
 
-```
-const router = require('express').Router();
+   ```
+   const router = require('express').Router();
 
-router.get('/', function getAllBooks(req, res) {
-    res.status(200).json({
-        message: 'mendapatkan semua buku'
-    })
-})
+   router.get('/', function getAllBooks(req, res) {
+       res.status(200).json({
+           message: 'mendapatkan semua buku'
+       })
+   })
 
-module.exports = router;
-```
+   module.exports = router;
+   ```
 
 4. Lakukan hal yang sama untuk getOneBook, createBook, updateBook, dan deleteBook
 
-```
-const router = require('express').Router();
-...
+   ```
+   const router = require('express').Router();
+   ...
 
-router.get('/:id', function getOneBook(req, res) {
-    const id = req.params.id;
-    res.status(200).json({
-        message: 'mendapatkan satu buku',id,
-        })
-})
+   router.get('/:id', function getOneBook(req, res) {
+       const id = req.params.id;
+       res.status(200).json({
+           message: 'mendapatkan satu buku',id,
+           })
+   })
 
-router.post('/', function createBook(req, res) {
-    res.status(200).json({
-        message: 'membuat buku baru'
-    })
-})
+   router.post('/', function createBook(req, res) {
+       res.status(200).json({
+           message: 'membuat buku baru'
+       })
+   })
 
-router.put('/:id', function updateBook(req, res) {
-    const id = req.params.id;
-    res.status(200).json({
-    message: 'memperbaharui satu buku',id,
-    })
-})
+   router.put('/:id', function updateBook(req, res) {
+       const id = req.params.id;
+       res.status(200).json({
+       message: 'memperbaharui satu buku',id,
+       })
+   })
 
-router.delete('/:id', function deleteBook(req, res) {
-    const id = req.params.id;
-    res.status(200).json({
-        message: 'menghapus satu buku',id,
-    })
-})
+   router.delete('/:id', function deleteBook(req, res) {
+       const id = req.params.id;
+       res.status(200).json({
+           message: 'menghapus satu buku',id,
+       })
+   })
 
-module.exports = router;
-```
+   module.exports = router;
+   ```
+
+   <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/13.png)
 
 5. Lakukan import book.route.js pada file index.js dan tambahkan baris kode berikut
 
-```
-require('dotenv').config();
-const express = require('express');
-const mongoose = require('mongoose');
-const bookRoutes = require('./routes/book.route'); //
+   ```
+   require('dotenv').config();
+   const express = require('express');
+   const mongoose = require('mongoose');
+   const bookRoutes = require('./routes/book.route'); //
 
-...
+   ...
 
-app.get('/', (req, res) => {
-    res.status(200).json({
-        message: '<nama>,<nim>'
-    })
-})
+   app.get('/', (req, res) => {
+       res.status(200).json({
+           message: '<nama>,<nim>'
+       })
+   })
 
-app.use('/books', bookRoutes); //
+   app.use('/books', bookRoutes); //
 
-const PORT = process.env.PORT || 8000;
-app.listen(PORT, () => {
-    console.log(`Running on port ${PORT}`);
-})
-```
+   const PORT = process.env.PORT || 8000;
+   app.listen(PORT, () => {
+       console.log(`Running on port ${PORT}`);
+   })
+   ```
+
+   <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/14.png)
 
 6. Uji salah satu endpoint menggunakan Postman
+   <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/15.png)
 
 ### Pembuatan controller
 
 1. Lakukan pembuatan direktori controllers di tingkat yang sama dengan index.js
 2. Buatlah file book.controller.js di dalamnya
-3. Salin baris kode dari routes untuk fungsi getAllBooks
+3. Uji salah satu endpoint menggunakan Postman
+   <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/1-1.png)
 
-```
-function getAllBooks(req, res) {
-    res.status(200).json({
-    message: 'mendapatkan semua buku'
-    })
-};
+4. Salin baris kode dari routes untuk fungsi getAllBooks
 
-module.exports = {
-    getAllBooks,
-}
-```
+   ```
+   function getAllBooks(req, res) {
+       res.status(200).json({
+       message: 'mendapatkan semua buku'
+       })
+   };
 
-4. Lakukan hal yang sama untuk getOneBook, createBook, updateBook, dan
-   deleteBook
+   module.exports = {
+       getAllBooks,
+   }
+   ```
 
-```
-...
-function getOneBook(req, res) {
-    const id = req.params.id;
-    res.status(200).json({
-        message: 'mendapatkan satu buku',id,
-    })
-}
+5. Lakukan hal yang sama untuk getOneBook, createBook, updateBook, dan deleteBook
 
-function createBook(req, res) {
-    res.status(200).json({
-        message: 'membuat buku baru'
-    })
-}
+   ```
+   ...
+   function getOneBook(req, res) {
+       const id = req.params.id;
+       res.status(200).json({
+           message: 'mendapatkan satu buku',id,
+       })
+   }
 
-function updateBook(req, res) {
-    const id = req.params.id;
-    res.status(200).json({
-        message: 'memperbaharui satu buku',id,
-    })
-}
+   function createBook(req, res) {
+       res.status(200).json({
+           message: 'membuat buku baru'
+       })
+   }
 
-function deleteBook(req, res) {
-    const id = req.params.id;
-    res.status(200).json({
-        message: 'menghapus satu buku',id,
-    })
-}
+   function updateBook(req, res) {
+       const id = req.params.id;
+       res.status(200).json({
+           message: 'memperbaharui satu buku',id,
+       })
+   }
 
-module.exports = {
-getAllBooks,
-getOneBook, //
-createBook, //
-updateBook, //
-deleteBook //
-}
-```
+   function deleteBook(req, res) {
+       const id = req.params.id;
+       res.status(200).json({
+           message: 'menghapus satu buku',id,
+       })
+   }
 
-5. Lakukan import book.controller.js pada file book.route.js
+   module.exports = {
+   getAllBooks,
+   getOneBook, //
+   createBook, //
+   updateBook, //
+   deleteBook //
+   }
+   ```
 
-```
-const router = require('express').Router();
-const book = require('../controllers/book.controller'); //
-...
-module.exports = router;
-```
+   <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/1-2.png)
 
-6. Lakukan perubahan pada fungsi agar dapat memanggil fungsi dari book.controller.js
+6. Lakukan import book.controller.js pada file book.route.js
 
-```
-const router = require('express').Router();
-const book = require('../controllers/book.controller');
+   ```
+   const router = require('express').Router();
+   const book = require('../controllers/book.controller'); //
+   ...
+   module.exports = router;
+   ```
 
-router.get('/', book.getAllBooks);
-router.get('/:id', book.getOneBook);
-router.post('/', book.createBook);
-router.put('/:id', book.updateBook);
-router.delete('/:id', book.deleteBook);
-module.exports = router;
-```
+   <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/1-3.png)
 
-7. Lakukan pengujian kembali, pastikan response tetap sama
+7. Lakukan perubahan pada book.route agar dapat memanggil fungsi dari book.controller.js
+
+   ```
+   const router = require('express').Router();
+   const book = require('../controllers/book.controller');
+
+   router.get('/', book.getAllBooks);
+   router.get('/:id', book.getOneBook);
+   router.post('/', book.createBook);
+   router.put('/:id', book.updateBook);
+   router.delete('/:id', book.deleteBook);
+   module.exports = router;
+   ```
+
+   <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/1-4.png)
+
+8. Lakukan pengujian kembali, pastikan response tetap sama
+   <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/1-5.png)
 
 ### Pembuatan Model
 
