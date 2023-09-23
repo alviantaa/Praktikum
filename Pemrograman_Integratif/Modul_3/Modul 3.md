@@ -328,32 +328,32 @@
    <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/2-1.png)
 3. Tambahkan baris kode berikut sesuai dengan tabel di atas
 
-```
-const mongoose = require('mongoose');
-const bookSchema = new mongoose.Schema({
-    title: {
-        type: String
-    },
-    author: {
-        type: String
-    },
-    year: {
-        type: Number
-    },
-    pages: {
-        type: Number
-    },
-    summary: {
-        type: String
-    },
-    publisher: {
-        type: String
-    }
-})
-module.exports = mongoose.model('book', bookSchema);
-```
+   ```
+   const mongoose = require('mongoose');
+   const bookSchema = new mongoose.Schema({
+       title: {
+           type: String
+       },
+       author: {
+           type: String
+       },
+       year: {
+           type: Number
+       },
+       pages: {
+           type: Number
+       },
+       summary: {
+           type: String
+       },
+       publisher: {
+           type: String
+       }
+   })
+   module.exports = mongoose.model('book', bookSchema);
+   ```
 
-<br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/2-2.png)
+   <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/2-2.png)
 
 ### Operasi CRUD
 
@@ -362,118 +362,118 @@ module.exports = mongoose.model('book', bookSchema);
 
 2. Lakukan import book.model.js pada file book.controller.js
 
-```
-const Book = require('../models/book.model');
-...
-```
+   ```
+   const Book = require('../models/book.model');
+   ...
+   ```
 
-<br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/3-2.png)
+   <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/3-2.png)
 
 3. Lakukan perubahan pada fungsi createBook
 
-```
-const Book = require('../models/book.model');
-...
-async function createBook(req, res) {
-    const book = new Book({
-        title: req.body.title,
-        author: req.body.author,
-        year: req.body.year,
-        pages: req.body.pages,
-        summary: req.body.summary,
-        publisher: req.body.publisher,
-    })
-    try {
-        const savedBook = await book.save();
-        res.status(200).json({
-            message: 'membuat buku baru',
-            book: savedBook,
-        })
-    } catch (error) {
-        res.status(500).json({
-        message: 'kesalahan pada server',
-        error: error.message,
-        })
-    }
-}
-...
-```
+   ```
+   const Book = require('../models/book.model');
+   ...
+   async function createBook(req, res) {
+       const book = new Book({
+           title: req.body.title,
+           author: req.body.author,
+           year: req.body.year,
+           pages: req.body.pages,
+           summary: req.body.summary,
+           publisher: req.body.publisher,
+       })
+       try {
+           const savedBook = await book.save();
+           res.status(200).json({
+               message: 'membuat buku baru',
+               book: savedBook,
+           })
+       } catch (error) {
+           res.status(500).json({
+           message: 'kesalahan pada server',
+           error: error.message,
+           })
+       }
+   }
+   ...
+   ```
 
 <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/3-3.png)
 
 4. Jalankan `node index.js` dan buat dua buah buku dengan data di bawah ini dengan postman
 
-```
-{
-"title": "Dilan 1990",
-"author": "Pidi Baiq",
-"year": 2014,
-"pages": 332,
-"summary": "Mirea, anata wa utsukushī",
-"publisher": "Pastel Books"
-}
-```
+   ```
+   {
+   "title": "Dilan 1990",
+   "author": "Pidi Baiq",
+   "year": 2014,
+   "pages": 332,
+   "summary": "Mirea, anata wa utsukushī",
+   "publisher": "Pastel Books"
+   }
+   ```
 
-<br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/3-4.png)
+   <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/3-4.png)
 
-```
-{
-"title": "Dilan 1991",
-"author": "Pidi Baiq",
-"year": 2015,
-"pages": 344,
-"summary": "Watashi ga kare o aishite iru to ittara",
-"publisher": "Pastel Books"
-}
-```
+   ```
+   {
+   "title": "Dilan 1991",
+   "author": "Pidi Baiq",
+   "year": 2015,
+   "pages": 344,
+   "summary": "Watashi ga kare o aishite iru to ittara",
+   "publisher": "Pastel Books"
+   }
+   ```
 
-<br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/3-5.png)
+   <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/3-5.png)
 
 5. Lakukan perubahan pada fungsi getAllBooks
 
-```
-const Book = require('../models/book.model');
-async function getAllBooks(req, res) {
-    try {
-        const books = await Book.find();
-        res.status(200).json({
-        message: 'mendapatkan semua buku',books,
-        })
-    } catch (error) {
-    res.status(500).json({
-        message: 'kesalahan pada server',
-        error: error.message,
-        })
-    }
-}
-...
-```
+   ```
+   const Book = require('../models/book.model');
+   async function getAllBooks(req, res) {
+       try {
+           const books = await Book.find();
+           res.status(200).json({
+           message: 'mendapatkan semua buku',books,
+           })
+       } catch (error) {
+       res.status(500).json({
+           message: 'kesalahan pada server',
+           error: error.message,
+           })
+       }
+   }
+   ...
+   ```
 
-<br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/3-6.png)
+   <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/3-6.png)
 
 6. Lakukan perubahan pada fungsi getOneBook
 
-```
-const Book = require('../models/book.model');
-...
-async function getOneBook(req, res) {
-    const id = req.params.id;
-    try {
-        const book = await Book.findById(id);
-        res.status(200).json({
-        message: 'mendapatkan satu buku',book,
-        })
-    } catch (error) {
-        res.status(500).json({
-        message: 'kesalahan pada server',
-        error: error.message,
-        })
-    }
-}
-...
-```
+   ```
+   const Book = require('../models/book.model');
+   ...
+   async function getOneBook(req, res) {
+       const id = req.params.id;
+       try {
+           const book = await Book.findById(id);
+           res.status(200).json({
+           message: 'mendapatkan satu buku',book,
+           })
+       } catch (error) {
+           res.status(500).json({
+           message: 'kesalahan pada server',
+           error: error.message,
+           })
+       }
+   }
+   ...
+   ```
 
-<br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/3-7png)
+   <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/3-7.png)
 
 7. Tampilkan semua buku dengan Postman
    <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/3-8.png)
@@ -483,54 +483,56 @@ async function getOneBook(req, res) {
 
 9. Lakukan perubahan pada fungsi updateBook
 
-```
-const Book = require('../models/book.model');
-...
-async function updateBook(req, res) {
-    const id = req.params.id;
-    try {
-        const book = await Book.findByIdAndUpdate(
-        id, req.body, { new: true }
-        )
-        res.status(200).json({
-            message: 'memperbaharui satu buku',book,
-        })
-    } catch (error) {
-        res.status(500).json({
-        message: 'kesalahan pada server',
-        error: error.message,
-        })
-    }
-}
-...
-```
+   ```
+   const Book = require('../models/book.model');
+   ...
+   async function updateBook(req, res) {
+       const id = req.params.id;
+       try {
+           const book = await Book.findByIdAndUpdate(
+           id, req.body, { new: true }
+           )
+           res.status(200).json({
+               message: 'memperbaharui satu buku',book,
+           })
+       } catch (error) {
+           res.status(500).json({
+           message: 'kesalahan pada server',
+           error: error.message,
+           })
+       }
+   }
+   ...
+   ```
 
-<br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/3-10.png)
+   <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/3-10.png)
 
-10. Ubah judul buku Dilan 1991 menjadi “<NAMA PANGGILAN> 1991” dengan Postman
+10. Ubah judul buku Dilan 1991 menjadi “NAMA_PANGGILAN 1991” dengan Postman
     <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/3-11.png)
 
 11. Lakukan perubahan pada fungsi deleteBook
 
-```
-const Book = require('../models/book.model');
-...
-async function deleteBook(req, res) {
-    const id = req.params.id;
-    try {
-        const book = await Book.findByIdAndDelete(id);
-        res.status(200).json({
-            message: 'menghapus satu buku',book,
-        })
-    } catch (error) {
-        res.status(500).json({
-        message: 'kesalahan pada server',
-        error: error.message,
-        })
+    ```
+    const Book = require('../models/book.model');
+    ...
+    async function deleteBook(req, res) {
+        const id = req.params.id;
+        try {
+            const book = await Book.findByIdAndDelete(id);
+            res.status(200).json({
+                message: 'menghapus satu buku',book,
+            })
+        } catch (error) {
+            res.status(500).json({
+            message: 'kesalahan pada server',
+            error: error.message,
+            })
+        }
     }
-}
-...
-```
+    ...
+    ```
 
-<br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/3-12.png) 12. Hapus buku Dilan 1990 dengan Postman
-<br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/3-13.png)
+    <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/3-12.png)
+
+12. Hapus buku Dilan 1990 dengan Postman
+    <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/3-13.png)
