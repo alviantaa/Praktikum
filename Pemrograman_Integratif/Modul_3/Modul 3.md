@@ -325,6 +325,7 @@
 
 1. Lakukan pembuatan direktori models di tingkat yang sama dengan index.js
 2. Buatlah file book.model.js di dalamnya
+   <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/2-1.png)
 3. Tambahkan baris kode berikut sesuai dengan tabel di atas
 
 ```
@@ -352,15 +353,21 @@ const bookSchema = new mongoose.Schema({
 module.exports = mongoose.model('book', bookSchema);
 ```
 
+<br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/2-2.png)
+
 ### Operasi CRUD
 
 1. Hapus semua data pada collection books
+   <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/3-1.png)
+
 2. Lakukan import book.model.js pada file book.controller.js
 
 ```
 const Book = require('../models/book.model');
 ...
 ```
+
+<br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/3-2.png)
 
 3. Lakukan perubahan pada fungsi createBook
 
@@ -392,7 +399,9 @@ async function createBook(req, res) {
 ...
 ```
 
-4. Buat dua buah buku dengan data di bawah ini dengan postman
+<br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/3-3.png)
+
+4. Jalankan `node index.js` dan buat dua buah buku dengan data di bawah ini dengan postman
 
 ```
 {
@@ -405,6 +414,8 @@ async function createBook(req, res) {
 }
 ```
 
+<br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/3-4.png)
+
 ```
 {
 "title": "Dilan 1991",
@@ -415,6 +426,8 @@ async function createBook(req, res) {
 "publisher": "Pastel Books"
 }
 ```
+
+<br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/3-5.png)
 
 5. Lakukan perubahan pada fungsi getAllBooks
 
@@ -435,6 +448,8 @@ async function getAllBooks(req, res) {
 }
 ...
 ```
+
+<br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/3-6.png)
 
 6. Lakukan perubahan pada fungsi getOneBook
 
@@ -458,8 +473,14 @@ async function getOneBook(req, res) {
 ...
 ```
 
+<br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/3-7png)
+
 7. Tampilkan semua buku dengan Postman
+   <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/3-8.png)
+
 8. Tampilkan buku Dilan 1990 dengan Postman
+   <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/3-9.png)
+
 9. Lakukan perubahan pada fungsi updateBook
 
 ```
@@ -484,7 +505,11 @@ async function updateBook(req, res) {
 ...
 ```
 
+<br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/3-10.png)
+
 10. Ubah judul buku Dilan 1991 menjadi “<NAMA PANGGILAN> 1991” dengan Postman
+    <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/3-11.png)
+
 11. Lakukan perubahan pada fungsi deleteBook
 
 ```
@@ -507,4 +532,5 @@ async function deleteBook(req, res) {
 ...
 ```
 
-12. Hapus buku Dilan 1990 dengan Postman
+<br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/3-12.png) 12. Hapus buku Dilan 1990 dengan Postman
+<br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/3-13.png)
