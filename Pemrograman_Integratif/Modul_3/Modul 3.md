@@ -399,7 +399,7 @@
    ...
    ```
 
-<br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/3-3.png)
+   <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_3/screenshot/3-3.png)
 
 4. Jalankan `node index.js` dan buat dua buah buku dengan data di bawah ini dengan postman
 
