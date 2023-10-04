@@ -7,7 +7,7 @@
 
 ### Dynamic Route
 
-Dynamic route adalah route yang dapat berubah-ubah, contohnya pada saat kita membukasuatu halaman web, kadang kita melihat `/users/1` atau `/users/2`, hal ini yang dinamakan dynamic routes.
+Dynamic route adalah route yang dapat berubah-ubah, contohnya pada saat kita membuka suatu halaman web, kadang kita melihat `/users/1` atau `/users/2`, hal ini yang dinamakan dynamic routes.
 Untuk menambahkan dynamic routes pada aplikasi lumen kita, kita dapat menggunakan syntax berikut,
 
 ```
@@ -66,7 +66,7 @@ $router->get('/profile', function (Request $request) {
 
 ### Group Route
 
-Pada lumen, kita juga dapat memberikan grouping pada routes kita agar lebih mudah pada saat penulisan route pada web.php kita. Kita dapat melakukan grouping dengan menggunakan syntax berikut,
+Pada lumen, kita juga dapat memberikan grouping pada routes kita agar lebih mudah pada saat penulisan route pada web.php. Kita dapat melakukan grouping dengan menggunakan syntax berikut,
 
 ```
 $router->group(['prefix' => 'users'], function () use ($router) {
@@ -84,12 +84,9 @@ namespace pada kelompok routes kita.
 
 ### Middleware
 
-Middleware adalah penengah antara komunikasi aplikasi dan client. Middleware biasanya digunakan untuk membatasi siapa yang dapat berinteraksi dengan aplikasi kita dan semacamnya, kita dapat menambahkan middleware dengan menambahkan file pada folder `app/Http/Middleware`. Pada folder tersebut terdapat file `ExampleMiddleware` , kita dapat mencopy file tersebut untuk membuat middleware baru. Pada praktikum kali ini akan dibuat middleware Age dengan isi,
+Middleware adalah penengah antara komunikasi aplikasi dan client. Middleware biasanya digunakan untuk membatasi siapa yang dapat berinteraksi dengan aplikasi kita dan semacamnya, kita dapat menambahkan middleware dengan menambahkan file pada folder `app/Http/Middleware`. Pada folder tersebut terdapat file `ExampleMiddleware`, kita dapat mencopy file tersebut untuk membuat middleware baru. Pada praktikum kali ini akan dibuat middleware Age dengan isi,
 
 ```
-<?php
-namespace App\Http\Middleware;
-use Closure;
 class AgeMiddleware{
     /**
     * Handle an incoming request.
@@ -117,17 +114,18 @@ AgeMiddleware pada aplikasi kita, pada file `bootstrap/app.php` seperti berikut 
 2   //      App\Http\Middleware\ExampleMiddleware::class
 3   // ]);
 4
-5   $app->routeMiddleware([
-6       // 'auth' => App\Http\Middleware\Authenticate::class,
-7       'age' => App\Http\Middleware\AgeMiddleware::class
-8   ]);
+5   // $app->routeMiddleware([
+6   //    'auth' => App\Http\Middleware\Authenticate::class,
+7   //    'age' => App\Http\Middleware\AgeMiddleware::class
+8   // ]);
 ```
+
+Untuk menambahkan middleware pada aplikasi kita, kita dapat uncomment baris 1-3, kemudian menambahkan age middleware ke dalamnya.
+Namun, karena kita hanya ingin menambahkan middleware pada route tertentu, kita akan menghapus comment pada baris 5-8, kemudian menambahkan middleware age di dalamnya.
 
 <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_5/screenshot/7.jpg)
 
-Untuk menambahkan middleware pada aplikasi kita, kita dapat uncomment baris 1-3, kemudian menambahkan age middleware ke dalamnya.
-Namun, karena kita hanya ingin menambahkan middleware pada route tertentu, kita akan menghapus comment pada baris 5-7, kemudian menambahkan middleware age di dalamnya.
-Lalu, kita dapat menambahkan middleware pada routes kita dengan menambahkan opsi middleware pada salah satu route, contohnya,
+Kita dapat menambahkan middleware pada routes kita dengan menambahkan opsi middleware pada salah satu route, contohnya,
 
 ```
 $router->get('/admin/home/', ['middleware' => 'age', function () {
