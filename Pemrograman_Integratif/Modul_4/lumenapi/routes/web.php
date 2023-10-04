@@ -39,3 +39,44 @@ $router->delete('/delete', function () {
 $router->options('/options', function () {
     return 'OPTIONS';
 });
+
+//modul 5
+//dynamic routes
+$router->get('/user/{id}', function ($id) {
+    return 'User Id = ' . $id;
+});
+
+$router->get('/post/{postId}/comments/{commentId}', function ($postId, $commentId) {
+    return 'Post ID = ' . $postId . ' Comments ID = ' . $commentId;
+});
+
+// $router->get('/users[/{userId}]', function ($userId = null) {
+//     return $userId === null ? 'Data semua users' : 'Data user dengan id ' . $userId;
+// });
+
+//alias route
+$router->get('/auth/login', ['as' => 'route.auth.login', function () {
+    return 'Login page';
+}]);
+
+$router->get('/profile', function () {
+//    if ($request->isLoggedIn) {
+        return redirect()->route('route.auth.login');
+//    }
+});
+
+//group route
+$router->group(['prefix' => 'users'], function () use ($router) {
+    $router->get('/', function () {
+        return "GET /users";
+    });
+});
+
+//middleware
+$router->get('/admin/home/', ['middleware' => 'age', function () {
+    return 'Dewasa';
+}]);
+
+$router->get('/fail', function () {
+    return 'Dibawah umur';
+});
