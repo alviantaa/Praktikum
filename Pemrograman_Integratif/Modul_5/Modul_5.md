@@ -39,9 +39,9 @@ $router->get('/users[/{userId}]', function ($userId = null) {
 ```
 
 <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_5/screenshot/3.jpg)
-hasil ketika mengakses endpoint /users
+<br>hasil ketika mengakses endpoint /users
 <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_5/screenshot/11.jpg)
-hasil ketika mengakses endpoint /users/1
+<br>hasil ketika mengakses endpoint /users/1
 <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_5/screenshot/12.jpg)
 
 ### Aliases Route
@@ -61,7 +61,7 @@ $router->get('/profile', function (Request $request) {
 ```
 
 <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_5/screenshot/4.jpg)
-ketika mengakses endpoint /profile, otomatis redirect ke /auth/login (a.k.a route.auth.login)
+<br>ketika mengakses endpoint /profile, otomatis redirect ke /auth/login (a.k.a route.auth.login)
 <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_5/screenshot/13.jpg)
 
 ### Group Route
@@ -140,7 +140,7 @@ $router->get('/fail', function () {
 ```
 
 <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_5/screenshot/8.jpg)
-ketika dalam middleware class, age dalam if diubah menjadi lebih dari 17
+<br>ketika dalam middleware class, age dalam if diubah menjadi lebih dari 17
 <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_5/screenshot/16.jpg)
-ketika dalam middleware class, age dalam if diubah menjadi kurang dari 17
+<br>ketika dalam middleware class, age dalam if diubah menjadi kurang dari 17
 <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_5/screenshot/16.jpg)
