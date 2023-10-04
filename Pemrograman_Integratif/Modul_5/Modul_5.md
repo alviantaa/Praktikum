@@ -141,6 +141,6 @@ $router->get('/fail', function () {
 
 <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_5/screenshot/8.jpg)
 <br>ketika dalam middleware class, age dalam if diubah menjadi lebih dari 17
-<br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_5/screenshot/16.jpg)
+<br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_5/screenshot/15.jpg)
 <br>ketika dalam middleware class, age dalam if diubah menjadi kurang dari 17
 <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_5/screenshot/16.jpg)
