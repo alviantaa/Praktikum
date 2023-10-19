@@ -133,7 +133,7 @@
 3. Jalankan aplikasi
    <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_6/screenshot/8.jpg)
 
-# Response Handler
+### Response Handler
 
 1. Lakukan import library Response dengan menambahkan baris berikut di bagian atas file
 
@@ -250,9 +250,9 @@
    <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_6/screenshot/16.jpg)
 
 5. Jalankan aplikasi pada route /users/new dengan mengisi body sebagai berikut
-   `name: cyno`
-   `email: cyno@akademiya.ac.id`
-   `password: mahamatra`
+   <br>`name: cyno`
+   <br>`email: cyno@akademiya.ac.id`
+   <br>`password: mahamatra`
    <br>![image](https://github.com/alviantaa/Praktikum/blob/main/Pemrograman_Integratif/Modul_6/screenshot/17.jpg)
 
 6. Jalankan aplikasi pada route /users/all
