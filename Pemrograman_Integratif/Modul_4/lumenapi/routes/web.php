@@ -17,15 +17,27 @@
 //     return $router->app->version();
 // });
 
-$router->get('/', ['uses' => 'HomeController@index']);
-
-$router->get('/hello', ['uses' => 'HomeController@hello']);
-
-$router->group(['prefix' => 'users'], function () use ($router) {
-    $router->post('/default', ['uses' => 'HomeController@defaultUser']);
-    $router->post('/new', ['uses' => 'HomeController@createUser']);
-    $router->get('/all', ['uses' => 'HomeController@getUsers']);
+$router->group(['prefix' => 'posts'], function () use ($router) {
+    $router->post('/', ['uses' => 'PostController@createPost']);
+    $router->get('/{id}', ['uses' => 'PostController@getPostById']);
+    $router->put('/{id}/tag/{tagId}', ['uses' => 'PostController@addTag']);
 });
+$router->group(['prefix' => 'tags'], function () use ($router) {
+    $router->post('/', ['uses' => 'TagController@createTag']);
+});
+$router->group(['prefix' => 'comments'], function () use ($router) {
+    $router->post('/', ['uses' => 'CommentController@createComment']);
+});
+
+// $router->get('/', ['uses' => 'HomeController@index']);
+
+// $router->get('/hello', ['uses' => 'HomeController@hello']);
+
+// $router->group(['prefix' => 'users'], function () use ($router) {
+//     $router->post('/default', ['uses' => 'HomeController@defaultUser']);
+//     $router->post('/new', ['uses' => 'HomeController@createUser']);
+//     $router->get('/all', ['uses' => 'HomeController@getUsers']);
+// });
 
 // $router->get('/key', function () {
 //     return Str::random(32);
