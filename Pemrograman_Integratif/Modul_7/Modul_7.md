@@ -1,4 +1,4 @@
-# Model, Controller dan Request - Response Handler
+# Relasi One-to-Many dan Many-to-Many
 
 ## Dasar Teori
 
