@@ -17,6 +17,11 @@
 //     return $router->app->version();
 // });
 
+$router->group(['prefix' => 'auth'], function () use ($router) {
+    $router->post('/register', ['uses'=> 'AuthController@register']);
+    $router->post('/login', ['uses'=> 'AuthController@login']);
+});
+
 $router->group(['prefix' => 'posts'], function () use ($router) {
     $router->post('/', ['uses' => 'PostController@createPost']);
     $router->get('/{id}', ['uses' => 'PostController@getPostById']);
@@ -28,6 +33,10 @@ $router->group(['prefix' => 'tags'], function () use ($router) {
 $router->group(['prefix' => 'comments'], function () use ($router) {
     $router->post('/', ['uses' => 'CommentController@createComment']);
 });
+
+$router->get('/', ['uses' => 'HomeController@index']);
+$router->get('/hello', ['uses' => 'HomeController@hello']);
+$router->get('/home', ['middleware' => 'auth','uses' => 'HomeController@home']); //
 
 // $router->get('/', ['uses' => 'HomeController@index']);
 

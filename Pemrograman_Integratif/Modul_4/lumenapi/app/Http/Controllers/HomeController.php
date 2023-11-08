@@ -17,6 +17,15 @@ class HomeController extends Controller
         //
     }
 
+    public function home(Request $request)
+    {
+        $user = $request->user;
+        return response()->json([
+            'status' => 'Success',
+            'message' => 'selamat datang ' . $user->name,
+        ],200);
+    }
+
     public function index (Request $request)
     {
         return 'Hello, from lumen! We got your request from endpoint: ' . $request->path();
