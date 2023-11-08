@@ -1,4 +1,4 @@
-# Register Authentication dan Authorization
+# JSON Web Token (JWT)
 
 ## Dasar teori
 
@@ -75,7 +75,7 @@ Penyesuaian Database
    }
    ```
 
-<br>![Screenshot register](screenshot/1.jpg)
+   <br>![Screenshot register](screenshot/1.jpg)
 
 2. Jalankan perintah di bawah untuk memperbaharui migrasi dan menghapus data yang lama
    `php artisan migrate:fresh`
