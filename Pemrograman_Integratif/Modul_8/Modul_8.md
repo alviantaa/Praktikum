@@ -16,12 +16,11 @@
 
 <br> php -S localhost:8000 -t public
 
-# Register
+### Register
 
 1. Pastikan terdapat tabel users yang dibuat menggunakan migration pada bab 3 Basic Routing dan Migration. Berikut informasi kolom yang harus ada
    `id`,`createdAt`, `updatedAt`, `name`, `email`, `password`
    <br>![Screenshot register](screenshot/1.jpg)
-   <br>
 2. Pastikan terdapat model User.php yang digunakan pada bab 5 Model Controller dan Request-Response Handler. Berikut baris kode yang harus ada
 
    ```
@@ -47,7 +46,6 @@
    ```
 
    <br>![Screenshot register](screenshot/2.jpg)
-   <br>
 
 3. Buatlah file AuthController.php dan isilah dengan baris kode berikut
 
@@ -92,7 +90,6 @@
    ```
 
    <br>![Screenshot register](screenshot/3.jpg)
-   <br>
 
 4. Tambahkan baris berikut pada routes/web.php
 
@@ -105,7 +102,6 @@
    ```
 
    <br>![Screenshot register](screenshot/4.jpg)
-   <br>
 
 5. Jalankan aplikasi pada endpoint /auth/register dengan body berikut
 
@@ -118,7 +114,6 @@
    ```
 
    <br>![Screenshot register](screenshot/5.jpg)
-   <br>
 
 ### Authentication
 
@@ -153,7 +148,6 @@
    ```
 
    <br>![Screenshot register](screenshot/21.jpg)
-   <br>
 
 2. Tambahkan baris berikut pada routes/web.php
 
@@ -167,7 +161,6 @@
    ```
 
    <br>![Screenshot register](screenshot/22.jpg)
-   <br>
 
 3. Jalankan aplikasi pada endpoint /auth/login dengan body berikut
 
@@ -179,17 +172,15 @@
    ```
 
    <br>![Screenshot register](screenshot/6.jpg)
-
    <br>coba dengan menyalahkan email atau password
    <br>![Screenshot register](screenshot/7.jpg)
-   <br>
 
 ### Token
 
 1. Jalankan perintah berikut untuk membuat migrasi baru
    `php artisan make:migration add_column_token_to_users`
    <br>![Screenshot register](screenshot/8.jpg)
-   <br>
+
 2. Tambahkan baris berikut pada migration yang baru terbuat
 
    ```
@@ -225,7 +216,6 @@
    ```
 
    <br>![Screenshot register](screenshot/9.jpg)
-   <br>
 
 3. Tambahkan atribut token di $fillable pada User.php
 
@@ -256,7 +246,6 @@
    ```
 
    <br>![Screenshot register](screenshot/10.jpg)
-   <br>
 
 4. Tambahkan baris berikut pada file AuthController.php
 
@@ -293,10 +282,11 @@
    ```
 
    <br>![Screenshot register](screenshot/11.jpg)
-   <br> 5. Jalankan perintah di bawah untuk menjalankan migrasi terbaru
-   `php artisan migrate`
+
+5. Jalankan perintah di bawah untuk menjalankan migrasi terbaru `php artisan migrate`
    <br>![Screenshot register](screenshot/12.jpg)
-   <br> 6. Jalankan aplikasi pada endpoint /auth/login dengan body berikut. Salinlah token yang didapat ke notepad
+
+6. Jalankan aplikasi pada endpoint /auth/login dengan body berikut. Salinlah token yang didapat ke notepad
 
    ```
       {
@@ -307,7 +297,6 @@
    ```
 
    <br>![Screenshot register](screenshot/13.jpg)
-   <br>
 
 ### Authorization
 
@@ -352,7 +341,6 @@
    ```
 
    <br>![Screenshot register](screenshot/14.jpg)
-   <br>
 
 2. Tambahkan middleware yang baru dibuat pada bootstrap/app.php.
 
