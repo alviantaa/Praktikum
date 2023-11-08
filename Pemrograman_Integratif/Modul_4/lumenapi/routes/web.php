@@ -36,7 +36,8 @@ $router->group(['prefix' => 'comments'], function () use ($router) {
 
 $router->get('/', ['uses' => 'HomeController@index']);
 $router->get('/hello', ['uses' => 'HomeController@hello']);
-$router->get('/home', ['middleware' => 'auth','uses' => 'HomeController@home']); //
+//$router->get('/home', ['middleware' => 'auth','uses' => 'HomeController@home']); //
+$router->get('/home', ['middleware' => 'jwt.auth', 'uses' => 'HomeController@home']);
 
 // $router->get('/', ['uses' => 'HomeController@index']);
 
