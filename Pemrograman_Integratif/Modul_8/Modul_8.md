@@ -3,17 +3,18 @@
 ## Dasar teori
 
 1. Authentication
-   Authentication adalah proses untuk mengenali identitas dengan mekanisme pengasosiasian permintaan yang masuk dengan satu set kredensial pengidentifikasi. Kredensial yang diberikan akan dibandingkan dengan database informasi pengguna yang berwenang di dalam sistem operasi lokal atau server otentifikasi.
+   <br> Authentication adalah proses untuk mengenali identitas dengan mekanisme pengasosiasian permintaan yang masuk dengan satu set kredensial pengidentifikasi. Kredensial yang diberikan akan dibandingkan dengan database informasi pengguna yang berwenang di dalam sistem operasi lokal atau server otentifikasi.
 2. Token
-   Token merupakan nilai yang digunakan untuk mendapatkan akses ke sumber daya yang dibatasi secara elektronik. Penggunaan token ditujukan pada web service yang tidak menyimpan state yang berkaitan dengan penggunaan aplikasi (stateless) seperti session.
+   <br> Token merupakan nilai yang digunakan untuk mendapatkan akses ke sumber daya yang dibatasi secara elektronik. Penggunaan token ditujukan pada web service yang tidak menyimpan state yang berkaitan dengan penggunaan aplikasi (stateless) seperti session.
 3. Authorization
-   Authorization merupakan proses pemberian hak istimewa yang dilakukan setelah proses authentication. Setelah pengguna diidentifikasi pada proses authentication, authorization akan memberikan hak istimewa dan tindakan yang diizinkan kepada pengguna yang ditentukan.
+   <br> Authorization merupakan proses pemberian hak istimewa yang dilakukan setelah proses authentication. Setelah pengguna diidentifikasi pada proses authentication, authorization akan memberikan hak istimewa dan tindakan yang diizinkan kepada pengguna yang ditentukan.
 
 ## Langkah Percobaan
 
 > [!NOTE]
 > menggunakan aplikasi lumenapi pada modul 4
-> php -S localhost:8000 -t public
+
+<br> php -S localhost:8000 -t public
 
 # Register
 
@@ -107,11 +108,15 @@
    <br>
 
 5. Jalankan aplikasi pada endpoint /auth/register dengan body berikut
+
+   ```
    {
-   "name": "Scaramouche",
-   "email": "scaramouche@fatui.org",
-   "password": "wanderer"
+      "name": "Scaramouche",
+      "email": "scaramouche@fatui.org",
+      "password": "wanderer"
    }
+   ```
+
    <br>![Screenshot register](screenshot/5.jpg)
    <br>
 
@@ -174,11 +179,8 @@
    ```
 
    <br>![Screenshot register](screenshot/6.jpg)
-   <br>
 
-   > [!NOTE]
-   > coba lakukan dengan menyalahkan email atau password
-
+   <br>coba dengan menyalahkan email atau password
    <br>![Screenshot register](screenshot/7.jpg)
    <br>
 
@@ -388,7 +390,7 @@
       }
    ```
 
-<br>![Screenshot register](screenshot/16.jpg)
+   <br>![Screenshot register](screenshot/16.jpg)
 
 4. Tambahkan baris berikut pada routes/web.php
 
@@ -401,7 +403,8 @@
    ```
 
    <br>![Screenshot register](screenshot/17.jpg)
-   <br> 5. Jalankan aplikasi pada endpoint /home dengan melampirkan nilai token (pada header) yang
+
+5. Jalankan aplikasi pada endpoint /home dengan melampirkan nilai token (pada header) yang
    didapat setelah login pada header
    <br>![Screenshot register](screenshot/20.jpg)
    <br>Dengan token yang tidak sesuai
